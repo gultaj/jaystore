@@ -12,6 +12,7 @@
         <td>{{ product.name }}</td>
         <td>{{ product.description }}</td>
         <td>{{ product.price }}</td>
+        <td><a href="#" @click.prevent.stop="onRemove(product)" class="btn btn-outline-danger btn-sm">&#10006;</a></td>
       </tr>
     </tbody>
   </table>
@@ -23,6 +24,9 @@
     methods: {
       onEdit(product) {
         this.$emit('edit', product);
+      },
+      onRemove(product) {
+        this.$emit('delete', product);
       },
     },
   };

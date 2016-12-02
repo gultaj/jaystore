@@ -1,7 +1,10 @@
 <template>
   <section>
     <product-save-form :product="productInForm" @submit="onFormSave"></product-save-form>
-    <product-list :products="products" @edit="onEditProduct"></product-list>
+    <product-list 
+      :products="products" 
+      @edit="onEditProduct"
+      @delete="onDeleteProduct"></product-list>
   </section>
 </template>
 
@@ -59,6 +62,14 @@
       },
       onEditProduct(product) {
         this.productInForm = { ...product };
+      },
+      onDeleteProduct(product) {
+        const index = this.products.findIndex(p => p.id === product.id);
+        this.products.splice(index, 1);
+
+        if (product.id === this.productInForm.id) {
+          this.resetProductInForm();
+        }
       },
       resetProductInForm() {
         this.productInForm = initialData().productInForm;
