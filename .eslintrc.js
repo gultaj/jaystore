@@ -24,7 +24,9 @@ module.exports = {
       'js': 'never',
       'vue': 'never'
     }],
+    'arrow-body-style': ['error', 'never'],
+    'no-param-reassign': ['error', { 'props': false }],
     // allow debugger during development
-    'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0
+    'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0,
   }
 }

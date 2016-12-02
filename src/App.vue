@@ -1,16 +1,16 @@
 <template>
   <div class="container">
-    <product-list></product-list>
+    <products-manager></products-manager>
   </div>
 </template>
 
 <script>
-import ProductList from './components/ProductList';
+import ProductsManager from './components/ProductsManager';
 
 export default {
   name: 'app',
   components: {
-    ProductList,
+    ProductsManager,
   },
 };
 </script>
