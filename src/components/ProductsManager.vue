@@ -35,18 +35,17 @@
     methods: {
       ...mapActions(['saveProduct', 'deleteProduct']),
       onFormSave(product) {
-        this.saveProduct(product);
-        this.resetProductInForm();
+        this.saveProduct(product).then(() => this.resetProductInForm());
       },
       onEditProduct(product) {
         this.productInForm = { ...product };
       },
       onDeleteProduct(product) {
-        this.deleteProduct(product);
-
-        if (product.id === this.productInForm.id) {
-          this.resetProductInForm();
-        }
+        this.deleteProduct(product).then(() => {
+          if (product.id === this.productInForm.id) {
+            this.resetProductInForm();
+          }
+        });
       },
       resetProductInForm() {
         this.productInForm = initialData().productInForm;
