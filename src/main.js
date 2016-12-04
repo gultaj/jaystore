@@ -4,6 +4,7 @@ import VueRouter from 'vue-router';
 import App from './App';
 import ProductsManager from './components/ProductsManager';
 import ProductCatalog from './components/ProductCatalog';
+import store from './vuex/store';
 // import '../node_modules/bootstrap/dist/js/bootstrap.min';
 import './styles/style.scss';
 
@@ -17,6 +18,7 @@ const routes = [
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
-  router: new VueRouter({ routes }),
+  store,
+  router: new VueRouter({ mode: 'history', routes }),
   render: h => h(App),
 });
