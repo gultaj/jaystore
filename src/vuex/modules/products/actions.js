@@ -8,16 +8,16 @@ export function fetchProducts({ commit }) {
 
 export function deleteProduct({ commit }, product) {
   return http.delete(`products/${product.id}`)
-    .then(() => commit(DELETE_PRODUCT, product.id));
+    .then(() => commit(DELETE_PRODUCT, product));
 }
 
-function createProduct({ commit }, { product }) {
-  return http.post('products', product)
+function createProduct({ commit }, product) {
+  return http.post('products/', product)
     .then(response => commit(CREATE_PRODUCT, response.body.data));
 }
 
 function updateProduct({ commit }, product) {
-  return http.put(`products/${product.id}`)
+  return http.put(`products/${product.id}`, product)
     .then(response => commit(UPDATE_PRODUCT, response.body.data));
 }
 
